@@ -3,40 +3,876 @@
 
 <head>
 	<title>Login Register App</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-	</script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="./css/main.css">
+	<meta charset="UTF8">
+<meta name = "viewport" content="width=device-width, initial-scale=1">
+<link a href ="./bootstrap-5.1.3/css/bootstrap.css" rel="stylesheet"> 
+<link href="./bootstrap-5.1.3/css/bootstrap.min.css" rel="stylesheet">
+<script src ="./bootstrap-5.1.3/js/bootstrap.js"></Script>
+<script src ="./bootstrap-5.1.3/js/bootstrap.bundle.js"></script>
+
+	<script src = "https://code.jquery.com/jquery-3.6.0.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src ="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src ="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+   <link a href ="./css/home.css" rel="stylesheet">
+   <link a href ="./css/card.css" rel="stylesheet">
+   <script src ="./js/Homejs.js"></script>
+   <script src="./js/qr-code.js"></script>
+   <style>
+	#qrcode {
+	width:160px;
+	height:160px;
+	margin-top:15px;
+  }
+  </style>
+  
+  <script  >
+    var name = data.username ;
+   function greeting( name ) {  
+   alert("โปรแกรมคลังสินค้า ยินดีต้อนรับ " + name  );
+   alert("ศึกษาคู่มือการใช้งานที่  LineId : 0638767955");
+     
+   }  
+   greeting();
+   
+   </script>
+   
 </head>
 
 <body>
-	<div class="col-md-4 col-md-offset-4 form-card">
-		<div>
-			<p>Profile Detail</p>
-		</div>
-		<div>
-			<center>
-				<table class="table table-hover text-center">
-					<tr>
-						<td>Name </td>
-						<td>
-							<%= name %>
-						</td>
-					</tr>
-					<tr>
-						<td>Email </td>
-						<td>
-							<%= email %>
-						</td>
-					</tr>
-				</table>
-			</center>
-		</div>
-		<div class="abc" id="LangTable">
-			<a href="/logout">Logout</a>
-		</div>
-	</div>
-</body>
+ 
+  <%- include('header'); %>
+  
 
+  <%- include('navbar'); %>
+
+ 
+
+
+<aside style="padding-bottom:15% ;">
+
+ 
+
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">สร้าง/เพิ่มข้อมูล</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="creatQRcode offcanvas-body" id = "numberbarcode">
+               
+    <form  method = "post" action = "Data/add-data">
+      <div class ="formcreateqrcode">     
+        <h5 class ="bg-white text-dark border-2 " >ID/หมายเลขสินค้า:</h5>
+        <input class="bg-white text-dark" type = "number" name = "Id" id="numb" >
+        <button type="button" onclick="myFunction()">ดูQRCODE</button>
+        <br><div id="demo"></div><br>
+              <br><br>
+        <h5 class ="bg-white text-dark border-2 ">ชื่อสินค้า:</h5></td> 
+        <input class="bg-white text-dark" type = "text" name = "name" ></td>
+             <br><br>
+             <h5 class ="bg-white text-dark border-2">ราคา :</h5>
+        <input class="bg-white text-dark " type="number" name ="price" value="001">
+        <br>
+             <h5 class ="bg-white text-dark border-2">จำนวน :</h5>
+             <input class ="bg-white text-dark " type ="number" name="stock" value ="001"></inpyt>    
+  
+
+
+        <h5 class ="text-dark bg-white"><u>Group/กลุ่มสินค้า:</u></h5>
+               <select name="TYPEE" class =" bg-white ">
+                 <option value ="1" class ="text-white">อุปรกณ์เครื่องเขียน</option>
+                 <option value ="2">อาหาร/บริโภค</option>
+                 <option value ="3">อุปกรณ์อิเล็คทรอนิกส์</option>
+                 <option value ="4">อุปกรณ์กีฬา</option>
+               </select>
+               <br><br>
+               <h5 class ="bg-white text-dark border-2"><u>รูปภาพเกี่ยวกับสินค้า</u></h5>
+               
+                <input class = "bg-white text-dark "type="file" name = "filetoupload" id="filetoupload"value="Upload">
+            <br><br>
+       <h5 class ="bg-white text-dark border-2"><u>details/รายละเอียดสินค้า:</u></h5>
+               <textarea  class =" bg-white " name = "details" rows = "5" cols = "40"></textarea>
+               <br><br></div>
+               
+               <button class = "btn-outline-dark"  type="submit" value="submit" name="submit" >ยืนยัน</button>
+               <button class ="btn-outline-danger" type="reset" value ="reset" name="reset">ยกเลิก</button>
+      
+        </div></form>
+     
+      
+    <br><br>
+    <br><br><br>
+   
+    
+    <script type="text/javascript">
+      function myFunction() {
+      let xqrcode = document.getElementById("numb").value;
+      let text;
+         if(isNaN(xqrcode) || xqrcode == "" || xqrcode < 999){
+         
+          text="กรุณาใส่ตัวเลขเพื่อสร้างQRcode และ มี จำนวน 4 หลักขึ้นไป";
+          document.getElementById("demo").innerHTML= text;
+          
+          
+         }else{
+          document.getElementById("demo").innerHTML= null;
+          new QRCode(document.getElementById("demo"), xqrcode);
+          qrcode.clear(); 
+          qrcode.makeCode("#");
+         
+        }
+         
+      }
+      
+         </script>
+
+  
+
+
+  </div>
+</div>
+
+
+
+  <div class="offcanvas offcanvas-start w-50"  tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasExampleLabel">ADD/OUT</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    
+    <div class="offcanvas-body">
+      <div class="col-12">
+      <button class="btn btn-primary cols-5" id="QR" >QRCODE</button>
+      
+      
+      <button class="btn btn-primary cols-5" id="FORM">FORM</button>
+     </div>
+     
+     <style>
+          .result{
+            background-color: green;
+            color:#fff;
+            padding:20px;
+          }
+          .row{
+            display:flex;
+          }
+        </style>
+        <div class="QR">
+        <p>สแกนQRCODE: <span id="txtHint"></span></p>
+        <div class="row">
+          <div class="col">
+            <div style="width:500px;" id="Scaner" ></div>
+          </div>
+       
+
+        <script>
+         
+        function showHint(str) {
+          if (str.length == 0) {
+            document.getElementById("txtHint").innerHTML = "";
+            return;
+          } else {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").innerHTML = this.responseText;
+              }
+            };
+            xmlhttp.open("GET", "gethint.php?q=" + str, true);
+            xmlhttp.send();
+          }
+        }
+        
+       
+        
+        
+          </script>
+          <form action="#">
+          <div class="col" style="padding:30px;">
+            <h4>SCAN RESULT</h4>
+            <div>Employee name</div><form action="">
+             <input type="text" name="start" class="input bg-light" id="result" onkeyup="showHint(this.value)" placeholder="result here" readonly="" /></form>
+             <p>Status: <span id="txtHint"></span></p>
+             <input type ="number" name ="number" value ="001"><br>
+             <br>
+             <input class ="btn btn-primary" type ="submit" name = "submit" value ="ADD"> 
+             <input class ="btn btn-danger" type ="reset" value ="Cancel">
+             
+          </div>
+        </div></form>
+        <script type="text/javascript">
+        function onScanSuccess(qrCodeMessage) {
+            document.getElementById("result").value = qrCodeMessage;
+            showHint(qrCodeMessage);
+        playAudio();
+        
+        }
+        function onScanError(errorMessage) {
+          //handle scan error
+        }
+        var html5QrcodeScanner = new Html5QrcodeScanner(
+            "Scaner", { fps: 10, qrbox: 250 });
+        html5QrcodeScanner.render(onScanSuccess, onScanError);
+        
+        </script>
+      
+      </div></div>
+      
+     
+      <div class="FORM">
+         <h1>Testt</h1>
+        </div>
+      <div class="dropdown mt-3" hidden>
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+          Dropdown button
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<div class="tabshow row">
+  
+      <div class="col-sm-2 col-md-2 col-lg-2 bg-light" id="co">
+<h3 class ="text-dark border-3 border-bottom">ประเภท1
+      </h3>
+
+      <h5 class ="text-dark">จำนวน </h5>
+
+      
+</div>
+
+
+
+
+
+<div class="tab col-sm-2 col-md-2 col-lg-2 " id="co" style="background-color: #453340">
+<h3 class="text-white border-bottom">ประเภท2
+</h3>
+<h5 class ="text-white">จำนวน </h5>
+</div>
+
+<div class="col-sm-2 col-md-2 col-lg-2 " id="co" style="background-color: #5E2A50;">
+<h3 class = "text-white border-bottom">ประเภท3
+</h3>
+<h5 class ="text-white">จำนวน </h5>
+</div>
+
+<div class="col-sm-2 col-md-2 col-lg-2 bg-dark" id="co">
+<h3 class ="text-white border-bottom">
+ประเภท4
+</h3>
+<h5 class ="text-white">จำนวน </h5>
+</div>
+
+</div >
+
+
+
+
+  <div class ="chart ">
+<canvas id="myChart" width="400px" height="200px"></canvas>
+</div>
+
+<div class ="chart2">
+    <canvas id="myChart2" width="900px" height="200px"></canvas>
+    
+</div>
+
+<div class ="chart3" >
+  <canvas id ="myChart3" width="220px" height="60px"></canvas>
+  </div>
+  
+  <div class ="chart3" >
+    <canvas id ="myChart4" width="220px" height="60px"></canvas>
+    </div>
+  
+
+
+
+  <div class="content tab-content" id="v-pills-tabContent">
+    <div class="tab-pane fade " id="v-pills-add" role="tabpanel" aria-labelledby="v-pills-add-tab" tabindex="0">
+      <div class ="lade border-2 "><div id="loader"></div></div>
+
+
+    </div>
+    <div class="tab-pane fade show active contentcard" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" tabindex="0">
+      <div class ="lade border-2 ">
+        
+        <div id="loader"></div></div>
+      
+      <h1 class = "cardh1" >สินค้าเพิ่มล่าสุด</h1>
+   
+     
+          
+            <div class="card-group row g-2">
+             
+
+              
+              
+             
+
+
+
+              
+              <div class="card h-75 cardmagin col-md-2">
+                <img src="Image/ปากกา.jpg" class="card-img-top h-50 w-50" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                 </div>
+                <div class="card-footer">
+                  <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+              </div>
+              <div class="card h-75 cardmagin">
+                <img src="Image/ปากกา.jpg" class="card-img-top h-50 w-50" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  </div>
+                <div class="card-footer">
+                  <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+              </div>
+              <div class="card h-75 cardmagin">
+                <img src="Image/ปากกา.jpg" class="card-img-top h-50 w-50" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                 </div>
+                <div class="card-footer">
+                  <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+              </div>
+              
+              
+            </div>
+
+
+            
+
+          
+
+            <h1 class = "cardh1" >สินค้าออกล่าสุด</h1>
+   
+     
+          
+            <div class="card-group ">
+              
+             
+              
+            
+
+              <div class="card h-75 cardmagin col-md-2">
+                <img src="Image/ปากกา.jpg" class="card-img-top h-50 w-50" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                 </div>
+                <div class="card-footer">
+                  <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+              </div>
+              <div class="card h-75 cardmagin">
+                <img src="Image/ปากกา.jpg" class="card-img-top h-50 w-50" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  </div>
+                <div class="card-footer">
+                  <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+              </div>
+              <div class="card h-75 cardmagin">
+                <img src="Image/ปากกา.jpg" class="card-img-top h-50 w-50" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                 </div>
+                <div class="card-footer">
+                  <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+
+
+
+        
+        
+      
+
+    
+    <div class="loader tab-pane fade" id="v-pills-stores" role="tabpanel" aria-labelledby="v-pills-stores-tab" tabindex="0" onload="myFunction()" >
+      <div class ="lade border-2 "><div id="loader"></div></div>
+       
+
+        
+      
+    <table class="tb table bg-white "style= "border: none;"id ="myDiv" >
+          <thead>
+      <tr>
+        <th scope ="col">หมายเลขสินค้า</th>
+        <th scope="col ">กลุ่ม/ประเภท</th>
+        <th scope="col">ชื่อสินค้า</th>
+        <th scope="col">ราคา(บาท)</th>
+        <th scope="col">จำนวน</th>
+        <th scope="col">รายละเอียดสินค้า</th>
+        <th scope="col">ตัวอย่างสินค้า</th>
+        <th scope="col">วัน/เดือน/ปี</th>
+        <th scope="col2">ลบ/แก้ใข</th>
+      </tr>
+
+      
+
+
+
+      <tr>
+        <th scope="col">10001</th>
+        <th scope="col">testt</th>
+        <th scope="col">test</th>
+        <th scope="col">100</th>
+        <th scope="col">10</th>
+        <th scope="col">testt</th>
+        <th scope="col"><img src="รูปตกแต่ง/drinks-g2e8957ae8_1280.jpg" width="90px" height="90px"></th>
+        <th scope="col">tes/ttt/tt</th>
+        <th scope="col"><button class ="btn-success" style="padding: 1%;">แก้ใข</button> <button class ="btn-danger" style="margin-left: 5px; padding: 1%;">ลบ</button></th>
+
+      </tr>
+    </thead>
+
+</table>
+
+
+    </div>
+    <div class="tab-pane fade" id="v-pills-store" role="tabpanel" aria-labelledby="v-pills-store-tab" tabindex="0">
+      
+        <div class ="lade border-2 "><div id="loader"></div></div>
+      
+        <div class=" store">
+         
+          <div class="nav nav-tabs " id="nav-tab" role="tablist">
+            <button class ="btn-success"  style="padding:2% ; width: 10%;"  > <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+              <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
+            </svg> แก้ใข </button>          
+            <button class ="btn-danger"  style="padding:2% ; width: 10%;"  > <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+              <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
+            </svg> ลบ </button>  
+            <button class="nav-link active  " id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true"><b>Home</b></button>
+            <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false"><b>Profile</b></button>
+            <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false"><b>Profile</b></button>
+
+            <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false"><b>Contact</b></button>
+             
+          </div>
+        
+        <div class="tab-content align-content-end" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+
+
+
+
+
+            <div class="card-group ">
+              <div class="card mb-3  sm-4 xl-3 lg-3  cardmagin" style="max-width: 440px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="Image/notebook2.jpg" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                     <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  รายละเอียดสินค้า
+</button>
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+       
+      </div>
+    </div>
+  </div>
+</div>
+<br><br>
+
+                      <p class="card-text"><button class ="btn-success" style="padding: 1%;">แก้ใข</button><button class ="btn-danger" style="margin-left: 5px; padding: 1%;">ลบ</button></p>
+                    </div>
+                   
+                  </div>
+                </div>
+              </div>
+
+           
+          
+              <div class="card mb-3  sm-4 xl-3 lg-3  cardmagin" style="max-width: 440px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="Image/notebook2.jpg" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                     <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  รายละเอียดสินค้า
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+       
+      </div>
+    </div>
+  </div>
+</div>
+<br><br>
+
+                      <p class="card-text"><button class ="btn-success" style="padding: 1%;">แก้ใข</button><button class ="btn-danger" style="margin-left: 5px; padding: 1%;">ลบ</button></p>
+                    </div>
+                   
+                  </div>
+                </div>
+              </div>
+
+
+          </div>
+
+
+
+          <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+              
+            <div class="card-group ">
+              <div class="card mb-3  sm-4 xl-3 lg-3  cardmagin" style="max-width: 440px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="Image/notebook2.jpg" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                     <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  รายละเอียดสินค้า
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+       
+      </div>
+    </div>
+  </div>
+</div>
+<br><br>
+
+                      <p class="card-text"><button class ="btn-success" style="padding: 1%;">แก้ใข</button><button class ="btn-danger" style="margin-left: 5px; padding: 1%;">ลบ</button></p>
+                    </div>
+                   
+                  </div>
+                </div>
+              </div>
+              <div class="card mb-3  sm-4 xl-3 lg-3  cardmagin" style="max-width: 440px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="Image/notebook2.jpg" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                     <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  รายละเอียดสินค้า
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+       
+      </div>
+    </div>
+  </div>
+</div>
+<br><br>
+
+                      <p class="card-text"><button class ="btn-success" style="padding: 1%;">แก้ใข</button><button class ="btn-danger" style="margin-left: 5px; padding: 1%;">ลบ</button></p>
+                    </div>
+                   
+                  </div>
+                </div>
+              </div>
+
+                </div>
+
+          </div>
+          <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">...3333</div>
+          <div class="tab-pane fade" id="nav-disabled" role="tabpanel" aria-labelledby="nav-disabled-tab" tabindex="0">...4444</div>
+        </div>
+
+</div>
+      </div>
+      </div>
+      
+    
+  
+    
+
+      <div class=" tab-pane fade" id="v-pills-storied" role="tabpanel" aria-labelledby="v-pills-storied-tab" tabindex="0"  >
+        <div class ="lade border-2 "><div id="loader"></div></div>
+         
+  
+          
+        
+      <table class="tb table bg-info "style= "border: none;"id ="" >
+            <thead>
+        <tr>
+          <th scope ="col">หมายเลขสินค้า</th>
+          <th scope="col ">กลุ่ม/ประเภท</th>
+          <th scope="col">ชื่อสินค้า</th>
+          <th scope="col">ราคา(บาท)</th>
+          <th scope="col">จำนวน</th>
+          <th scope="col">รายละเอียดสินค้า</th>
+          <th scope="col">ตัวอย่างสินค้า</th>
+          <th scope="col">วัน/เดือน/ปี</th>
+          <th scope ="col">สถานะ</th>
+        </tr>
+        <tr>
+          <th scope="col" style="padding:1% 5% 1% 5% ;">10001</th>
+          <th scope="col">testt</th>
+          <th scope="col">test</th>
+          <th scope="col">100</th>
+          <th scope="col">10</th>
+          <th scope="col">testt</th>
+          <th scope="col"><img src="รูปตกแต่ง/drinks-g2e8957ae8_1280.jpg" width="90px" height="90px"></th>
+          <th scope="col">tes/ttt/tt</th>
+          <th scope="col">ลบออก</th>
+
+        </tr>
+      </thead>
+        
+  </table>
+  
+  
+      </div>
+      
+   
+
+</aside>
+
+
+<footer>
+
+</footer>
+<script>
+   const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน','กรกฎาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม'],
+            datasets: [{
+                label: 'สินค้าที่มีการจ่ายแต่ละเดือน ปี ',
+                data: [12, 19, 3, 5, 2, 3,12,55,2,15,22,12],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(255, 255, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ]
+                ,borderWidth: 3
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+
+    const ctc = document.getElementById('myChart2').getContext('2d');
+    const myChart2 = new Chart(ctc, {
+        
+        type: 'line',
+    data: {
+        labels: [ '2560','2561', '2562', '2563', '2564', '2565', '2566', '2567', '2568'],
+        datasets: [{ axis: 'y',
+    label: 'Data',
+    data: [65, 59, 80, 81, 56, ],
+    backgroundColor:['rgb(42, 138, 218)'],
+   
+    fill: true,
+    borderColor: 'rgb(75, 192, 192)',
+    tension: 0.1
+  }] }});
+
+  const ctd = document.getElementById('myChart3').getContext('2d');
+    const myChart3 = new Chart(ctd, {
+        type: 'doughnut',
+  data: {
+       labels:['สินค้าน้อยที่สุด:' ,'สินค้าอื่นๆ'],
+       datasets: [{
+    label: 'My First Dataset',
+    data: [300, 500],
+    backgroundColor: [
+      
+      'rgb(145, 108, 135,57)',
+      'rgb(94, 42, 80,37)'
+      
+    ],
+    hoverOffset: 4
+  }]
+       }
+
+    });
+
+    const cte = document.getElementById('myChart4').getContext('2d');
+    const myChart4 = new Chart(cte, {
+        type: 'doughnut',
+  data: {
+       labels:['สินค้ามากที่สุด : ',],
+       datasets: [{
+    label: 'My First Dataset',
+    data: [300,10],
+    backgroundColor: [
+      'rgb(28, 21, 26,11)',
+      'rgb(69,51,64,27)'
+    ],
+    hoverOffset: 4
+  }]
+       }
+
+    });
+
+
+    </script>
+ 
+    
+</body>
+<script>
+$("#menu").ready(function(){
+  $("#submenu").hide(1000);
+});
+$("#menu").hover(function(){
+   $("#submenu").show(1000);
+   
+  });
+  $("#menu").mouseleave(function(){
+  $("#submenu").hide(1000);
+  
+ });       
+ $("#menu2").ready(function(){
+  $("#submenu2").hide(1000);
+});
+$("#menu2").hover(function(){
+   $("#submenu2").show(1000);
+   
+  });
+  $("#menu2").mouseleave(function(){
+  $("#submenu2").hide(1000);
+  
+ });    
+
+
+   $(".loader").ready(function(){
+    $("#myDiv").hide(1000); 
+   $(".lade").hide(7000); 
+ 
+   $("#myDiv").show(8000); });
+
+  $(".Option").click(function(){
+  $(".options").show(5000);}
+  );
+  
+ $('#editmenu').ready(function(){
+  
+   $(".D").hide(500); 
+   $(".E").hide(500);
+
+ });
+
+  $("#Delete").click(function(){
+  
+   $(".D").show(1000); 
+   $(".E").hide(500); 
+  });
+  $("#Edite").click(function(){
+
+   $(".E").show(1000); 
+   $(".D").hide(500); 
+  });
+
+
+
+ $(".QR").ready(function(){$(".FORM").hide(500);});
+ $("#FORM").click(function(){$(".QR").hide(500);$(".FORM").show(500);});
+ $("#QR").click(function(){$(".FORM").hide(500);$(".QR").show(500);});
+  
+
+
+
+
+
+</script>
 </html>

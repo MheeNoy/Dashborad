@@ -1,0 +1,28 @@
+.cardmagin{
+    margin-top: 4%;
+    margin-right: 5%;
+    box-shadow:  2px 2px 2px;
+    margin-left: 5% ;
+}
+.cardh1{
+    font-family:  'Syne Mono';
+    
+    margin-top: 10%;
+    position: block;
+    padding-left: 15%;
+    border-radius: 5px 5px 5px ;
+    background-color: rgb(255, 255, 255);
+    color: rgb(9, 10, 10);
+   
+}
+.contentcard{
+border-top: 10px solid rgb(255, 255, 255);
+
+
+
+
+}
+.store{
+    margin-top: 50%;
+    border-top: 15px solid rgb(255, 255, 255);
+}

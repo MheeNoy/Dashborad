@@ -2,8 +2,14 @@ body{
 	text-align: center !important;
 }
 p{
+	color: aliceblue;
 	margin-top: 20px;
 	font-size: 30px;
+	text-shadow: 1px 1px 2px;
+	
+}
+#p_white{
+	color:aliceblue;
 }
 input{
 	text-align: center;
@@ -12,12 +18,15 @@ input{
     margin-bottom: 15px;
 }
 .form-card{
-    background-color: #fff8eb;
+    background-color: #3a3741;
     border-radius: 10px;
     margin-top: 130px;
+	box-shadow: 5px 5px 5px;
 }
 .mssg{
 	margin-top: 5px;
 	margin-bottom: 5px;
 	border-radius: 5px;
 }
+
+

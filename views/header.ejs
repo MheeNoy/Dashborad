@@ -1,0 +1,76 @@
+ 
+  <div class ="col-lg-12 col-md-12 col-sm-12 ">
+
+    <a class="checked navbar-brand text-dark col-lg-3 col-md-3 col-sm-3 " href="#" style="">Checked</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    
+    <center>
+        <div class ="col-lg-5 col-sm-5 col-md-5  bg-dark" 
+        style=" display: block ; margin-top: -3%; margin-bottom: 20px; 
+        border-radius: 15px 15px 15px;;
+        padding-left: 4px; padding-top: 8px; padding-bottom: 8px; padding-right: 0px;
+        box-shadow: 4px 4px 4px;">
+      <div class="input-group  bg-dark col-12">
+        <span class="input-group-button col-1" >
+          <button class=" border-0 btn btn-dark rounded-circle" id="menu" style="margin-left: 4px; float: inline-start;" onclick="showHint();" 
+          data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample" 
+           >
+          <svg class= xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-upc-scan" viewBox="0 0 16 16">
+            <path d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1h-3zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5zM.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5zM3 4.5a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-7zm3 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7z"/>
+          </svg>
+        </button></span><p class="text-dark" id="submenu" style="position:absolute; margin-top:45px;"><b>สแกนQRCODE</b></p>
+        
+        <span class="input-group-button col-1" >
+          <button class=" border-0 btn btn-dark rounded-circle" id="menu2" style="margin-left: 4px; float: inline-start;" onclick="showHint();" 
+          data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"
+           >
+           <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-folder2-open" viewBox="0 0 16 16">
+            <path d="M1 3.5A1.5 1.5 0 0 1 2.5 2h2.764c.958 0 1.76.56 2.311 1.184C7.985 3.648 8.48 4 9 4h4.5A1.5 1.5 0 0 1 15 5.5v.64c.57.265.94.876.856 1.546l-.64 5.124A2.5 2.5 0 0 1 12.733 15H3.266a2.5 2.5 0 0 1-2.481-2.19l-.64-5.124A1.5 1.5 0 0 1 1 6.14V3.5zM2 6h12v-.5a.5.5 0 0 0-.5-.5H9c-.964 0-1.71-.629-2.174-1.154C6.374 3.334 5.82 3 5.264 3H2.5a.5.5 0 0 0-.5.5V6zm-.367 1a.5.5 0 0 0-.496.562l.64 5.124A1.5 1.5 0 0 0 3.266 14h9.468a1.5 1.5 0 0 0 1.489-1.314l.64-5.124A.5.5 0 0 0 14.367 7H1.633z"/>
+          </svg>
+          
+        </button></span><p class="text-dark" id="submenu2" style="position:absolute; margin-top:45px; margin-left: 15px;"><b>Add/เพิ่มข้อมูล</b></p>
+  
+        <form action="" >
+        <input class="form-control form-control-sm bg-dark border-0 text-white col-4" type="search" placeholder="Search" 
+        onkeyup="showHint2(this.value)"aria-label=".form-control-sm example"
+        style="margin-left:100px; float: right;
+        float: left; position: relative;">
+        <span class="input-group-button " >
+        <button class="border-0 btn btn-dark col-1" id="hover"type="submit" name="submit"
+         style="  float: inline-end; margin-left: 4px;
+         position: absolute;" >
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+          </svg>
+  
+        </button></span>
+        
+      </div></div>
+      </form>
+      
+    
+  </center>
+  
+
+
+   <div class = "Dropdown-profile" style=" display: flexbox; margin-top: -2.5%;" >
+        <button type="button" class="profile  dropdown-toggle border-0 bg-light" data-bs-toggle="dropdown" aria-expanded="false">
+           
+         <b class ="text-dark text-end "><%= name %></b>
+          </button>
+          <ul class="menudrop dropdown-menu">
+            <li><a class="dropdown-item text-primary" href="#"><b>ข้อมูลผู้ใช้</b></a></li>
+            <li><a class="dropdown-item text-primary" href="#"><b>ตั้งค่า</b></a></li>
+            
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item text-danger" href="/logout"><b>ออกจากระบบ</b></a></li>
+          </ul>
+          </div>
+          
+          </div>
+
+

@@ -3,10 +3,10 @@
 
 <head>
 	<title>Login Register App</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
 	</script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="./css/main.css">
 
 
@@ -38,17 +38,19 @@
 				})
 			});
 		});
+
+		
 	</script>
 </head>
 
 <body>
-
-	<div class="col-md-4 col-md-offset-4 form-card">
+<center>
+	<div class="col-md-4 col-md-offset-4 form-card" style="padding:5px;">
 		<div>
 			<p>Register Now
 			</p>
 		</div>
-		<div class="form-group">
+		<div class="form-group " >
 			<form id="form1" method="post">
 				<input type="text" name="email" placeholder="E-mail" required=""
 				pattern="[-!#$%&'*+\/0-9=?ก-๙A-Z^_a-z`{|}~](\.?[-!#$%&'*+\/0-9=?ก-๙A-Z^_a-z`{|}~])*@[ก-๙a-zA-Z0-9](-*\.?[ก-๙a-zA-Z0-9])*\.[ก-๙a-zA-Z](-?[ก-๙a-zA-Z0-9])+$" class="form-control"><br />
@@ -56,7 +58,8 @@
 				<input type="password" name="password" placeholder="Password" required="" class="form-control"><br />
 				<input type="password" name="passwordConf" placeholder="Confirm Password" required=""
 					class="form-control"><br />
-				<input type="submit" value="Register" class="btn btn-success">
+				<input type="submit" value="Register" class="btn btn-outline-danger" >
+			    <a href="/login" class ="btn btn-primary" >Login</a>
 			</form>
 		</div>
 
@@ -64,11 +67,11 @@
 			<span id="check"></span>
 		</div>
 		<div>
-			<span>Already Registered! <a href="/login">Login</a></span>
+			<span style="color: orange;">Already Registered!  <a href="/login">Login</a></span>
 		</div>
 		<div id="LangTable"><a href="/login" id="aa"></a>
 		</div>
-	</div>
+	</div></center>
 </body>
 
 </html>

@@ -1,6 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const connect = require('../models/connect');
+//const Create = require('../models/Create');
 const User = require('../models/user');
+//const Config = require('../views/js/CRUD');
+
+
 
 router.get('/', (req, res, next) => {
 	return res.render('index.ejs');
@@ -55,7 +60,9 @@ router.post('/', (req, res, next) => {
 });
 
 router.get('/login', (req, res, next) => {
+	
 	return res.render('login.ejs');
+
 });
 
 router.post('/login', (req, res, next) => {
@@ -73,18 +80,77 @@ router.post('/login', (req, res, next) => {
 		}
 	});
 });
-
+//var myobj = {_id:'637c958638e610190c59f1f2',Fashion:{_id:Config.id, name:Config.name}};
 router.get('/profile', (req, res, next) => {
+	/*connect.insertOne(myobj, function(err, res) {
+		if (err) throw err;
+		console.log("1 document inserted");
+		db.close();
+	  });*/
 	User.findOne({ unique_id: req.session.userId }, (err, data) => {
 		if (!data) {
 			res.redirect('/');
 		} else {
-			return res.render('data.ejs', { "name": data.username, "email": data.email });
+
+			return  res.render('data.ejs', { "name": data.username, "email": data.email, "status": data.status });
+			
 		}
 	});
 });
 
+
+
+router.post('/profile', (req, res, next) => {
+	Create.find({
+		 id: req.body.Id 
+		 ,name: req.body.name },
+		  (err, data) => {
+		if (data) {
+                if(data.name == req.body.name || data.Id == req.body.id)
+				res.send("ข้อมูลที่ใช้ไปแล้ว กรุณาเปลี่ยน และ ID:");
+		}else{	
+				let newCreate = new Create({
+				id: req.body.id,
+				name: req.body.name,
+				Price:req.body.price,
+				STock: req.body.stock,
+				Image:req.body.img 
+			});
+
+			newCreate.save((err, Person) => {
+				if (err)
+					console.log(err);
+				else
+					console.log('Success');
+			});
+			
+				res.send({ "Success": "Success!" });
+		
+		} 
+	});
+});
+
+router.get('/data', (req, res, next) => {
+	connect.insertOne(myobj, function(err, res) {
+		if (err) throw err;
+		console.log("1 document inserted");
+		db.close();
+	  });
+	User.findOne({ unique_id: req.session.userId }, (err, data) => {
+		if (!data) {
+			res.redirect('/');
+		} else {
+
+			return  res.cookie('Cookie',data.name),
+			        res.end("Cookkie"),
+			        res.render('data.ejs', { "name": data.username, "email": data.email });}
+	});
+});
+
+
+
 router.get('/logout', (req, res, next) => {
+	
 	if (req.session) {
 		// delete session object
 		req.session.destroy((err) => {
@@ -98,7 +164,8 @@ router.get('/logout', (req, res, next) => {
 });
 
 router.get('/forgetpass', (req, res, next) => {
-	res.render("forget.ejs");
+	
+	return res.render("forget.ejs");
 });
 
 router.post('/forgetpass', (req, res, next) => {
@@ -124,5 +191,29 @@ router.post('/forgetpass', (req, res, next) => {
 	});
 
 });
+
+//insert object
+//myobj
+//name
+//insertOne
+/*MongoClient.connect(url, function(err,req,res, db) {
+	if (err) throw err;
+	var dbo = db.db("Dashbord");
+	var myobj = { name: "", address: "" };
+	dbo.collection("dashbord").insertOne(myobj, function(err, res) {
+	  if (err) throw err;
+	  console.log("1 document inserted");
+	  db.close();
+	});
+	//insertMany Obj
+	dbo.collection("Dashbord").insertMany(myobj, function(err, res) {
+	  if (err) throw err;
+	  console.log("Number of documents inserted: " + res.insertedCount);
+	  db.close();
+	});
+	
+  
+  
+  });*/
 
 module.exports = router;
